@@ -15,6 +15,13 @@ project ( "glfw" )
         "%{src_dirs.glfw}/**.c",
     }
 
+    filter ( "system:linux" )
+        defines ( {
+            --"_CRT_SECURE_NO_WARNINGS",
+            "_GLFW_WAYLAND",
+            "_GLFW_X11"
+        })
+
     filter ( "system:windows" )
         defines ( {
             "_CRT_SECURE_NO_WARNINGS",
